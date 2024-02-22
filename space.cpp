@@ -1,6 +1,5 @@
 class Galaxys_all(){
 	Galaxys_all(){
-	
 	}
 
 };
