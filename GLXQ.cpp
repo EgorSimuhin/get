@@ -105,7 +105,7 @@ unsigned int StarQuass::quasnumelements = 10;
 class Star : public StarQuass {
 private:
 	float Energy;
-        float time;
+    float time;
 	unsigned int starcount;
 public:
     Star(){
@@ -115,18 +115,16 @@ public:
         std::cout << "Укажите также это время t: ";
         std::cin >> time;
         std::cout << "Спасибо\n";
-	if (quaslumin != nullptr){
-		while (Energy/time >= Minqueslumin()){
-			std::cout<<"YOUR GALAXY STILL HAVE A QUASSAR WITH LESS POWERFUL SO CHOOSE ANE PARAMETRES"<<std::endl;
-			std::cout<<"FOR EXAMPLE: "<<"Energy: "<<10*Minqueslumin() - 0.1<<" "<<"time: "<<"10"<<std::endl;
-		        starcount = StarQuass::starcounter;
-                        std::cout << "Введите энергию испускаемую звездой за известное вам время t: ";
-                        std::cin >> Energy;
-                        std::cout << "Укажите также это время t: ";
-                        std::cin >> time;
-                        std::cout << "Спасибо\n";
-		}
+	while (Energy/time >= Minqueslumin()){
+		std::cout<<"YOUR GALAXY STILL HAVE A QUASSAR WITH LESS POWERFUL SO CHOOSE ANE PARAMETRES"<<std::endl;
+		std::cout<<"FOR EXAMPLE: "<<"Energy: "<<10*Minqueslumin() - 0.1<<" "<<"time: "<<"10"<<std::endl;
+        std::cout << "Введите энергию испускаемую звездой за известное вам время t: ";
+        std::cin >> Energy;
+        std::cout << "Укажите также это время t: ";
+        std::cin >> time;
+        std::cout << "Спасибо\n";
 	}
+	starcount = StarQuass::starcounter;
 	if (starlumin == nullptr)
 		starlumin = new float[starnumelements];
 	if (starcounter == starnumelements){
@@ -168,18 +166,16 @@ Quassar(){
 	std::cout<<std::endl;
 	std::cout<<"Введите время t:"<<" ";
 	std::cin>>Quastime;
-        if (starlumin != nullptr){
-                while (Quasenergy/Quastime <= Maxstarlumin()){
-                        std::cout<<"YOUR GALAXY STILL HAVE A QUASSAR WITH LESS POWERFUL SO CHOOSE ANE PARAMETRES"<<std::endl;
-                        std::cout<<"FOR EXAMPLE: "<<"Energy: "<<10*Maxstarlumin() + 0.1<<" "<<"time: "<<"10"<<std::endl;
-                        quascount = quascounter;
-                        std::cout << "Введите энергию испускаемую звездой за известное вам время t: ";
-                        std::cin >> Quasenergy;
-                        std::cout << "Укажите также это время t: ";
-                        std::cin >> Quastime;
-                        std::cout << "Спасибо\n";
-                }
-        }	
+    while (Quasenergy/Quastime <= Maxstarlumin()){
+        std::cout<<"YOUR GALAXY STILL HAVE A QUASSAR WITH LESS POWERFUL SO CHOOSE ANE PARAMETRES"<<std::endl;
+        std::cout<<"FOR EXAMPLE: "<<"Energy: "<<10*Maxstarlumin() + 0.1<<" "<<"time: "<<"10"<<std::endl;
+        std::cout << "Введите энергию испускаемую звездой за известное вам время t: ";
+        std::cin >> Quasenergy;
+        std::cout << "Укажите также это время t: ";
+        std::cin >> Quastime;
+        std::cout << "Спасибо\n";
+    }
+    quascount = quascounter;
         if (quaslumin == nullptr)
              quaslumin = new float[quasnumelements];
         if (quascounter == quasnumelements){
@@ -213,6 +209,4 @@ bool Danger() {
 int main(){
 	Quassar q1;
 	Star s1;
-        s1.Set_massa(30000);
-        s1.Get_massa();
 }
