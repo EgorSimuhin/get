@@ -1,20 +1,6 @@
+#include "Aster.hpp"
 #include <iostream>
-#include <string>
-#include <cmath>
-
-class SpaceObject{
-    
-public:
-    
-    virtual bool DAnger()= 0;
-};
-
-class asteroid: public SpaceObject {
-private:
-    static int count[20]; // Массив для хранения количества разновидностей астероидов
-    char type; // Тип астероида
-public:
-    asteroid() {
+asteroid::asteroid() {
 	std::cout<<"Input class of you astoroid is from A to T: ";
 	std::cin >> type;
 	std::cout<<std::endl;
@@ -25,29 +11,20 @@ public:
         count[int(type) - 65]++;
     }
 
-    ~asteroid() {
+ateroid:: ~asteroid() {
         count[int(type) - 65]--;
     }
-
-    static void printCount() {
+void asteroid::printCount() {
         std::cout << "Count of asteroids by type:" << std::endl;
         for (int i = 0; i < 20; i++) {
             std::cout << "Type " << char(i + 65) << ": " << count[i] << std::endl;
         }
     }
-    void typecount(){
+void asteroid::typecount(){
 	    std::cout << "Count of asteroid of this class "<<type<<" is "<< count[int(type) - 65] << std::endl;
     }
-bool DAnger(){
+bool asteroid::DAnger(){
         return true;
 }
-};
-int asteroid::count[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; 
-int main(){
-	asteroid a1;
-	asteroid a2;
-	asteroid a3;
-	a1.printCount();
-	a1.typecount();
-}
+
 
